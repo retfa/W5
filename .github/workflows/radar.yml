@@ -1,0 +1,12 @@
+name: Radar
+on: workflow_dispatch
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.0.0
+      - name: 執行雷達
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
+        run: uv run radar.py
